@@ -1,7 +1,7 @@
 # -*- mode: cperl; cperl-indent-level: 4; -*-
 # vi:ai:sm:et:sw=4:ts=4
 
-# $Id: Procmail.pm,v 1.2 2004/11/11 19:32:24 paulv Exp $
+# $Id: Procmail.pm,v 1.3 2004/11/12 06:11:27 paulv Exp $
 
 package POE::Filter::Log::Procmail;
 
@@ -11,7 +11,7 @@ use Data::Dumper;
 use POE::Filter::Line;
 use Carp qw(croak);
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 # sub get_one_start {
 #     my $self = shift;
@@ -204,17 +204,17 @@ You can pass it "Debug => 1" to turn debugging on.
 
 get() translates procmail log lines into hashrefs. The hashref looks like
 
-$VAR1 = {                                
-          'subject' => 'Re: use XML::Simple breaks my PoCo::IKC::Server',
-          'time' => '12:22:50',
-          'date' => '1',
-          'size' => '1726',
-          'folder' => 'mail/perl/poe',
-          'from' => 'poe-return-2605-paulv=cpan.org.org',
-          'dow' => 'Thu',
-          'mon' => 'Nov',
-          'year' => '2004'
-        };
+ $VAR1 = {                                
+           'subject' => 'Re: use XML::Simple breaks my PoCo::IKC::Server',
+           'time' => '12:22:50',
+           'date' => '1',
+           'size' => '1726',
+           'folder' => 'mail/perl/poe',
+           'from' => 'poe-return-2605-paulv=cpan.org.org',
+           'dow' => 'Thu',
+           'mon' => 'Nov',
+           'year' => '2004'
+         };
 
 =back
 
@@ -230,9 +230,11 @@ haven't tried it.
 
 Doesn't support put().
 
+Ignores verbose lines if VERBOSE is set in .procmailrc.
+
 =head1 AUTHOR
 
-Paul Visscher, E<lt>paulv@canonical.orgE<gt>
+Paul Visscher, E<lt>paulv@cpan.orgE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
