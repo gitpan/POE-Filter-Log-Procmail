@@ -72,7 +72,14 @@ my $test_data =
     "  Folder: mail/perl/poe                                           1726\n",
     " Subject: DUDE!\n",
    ],
+   # 7 - uppercase Subject
+   [
+    "From poe-return-2605-paulv=cpan.org\@perl.org  Thu Nov 11 12:22:50 2004\n",
+    " SUBJECT: Re: use XML::Simple breaks my PoCo::IKC::Server\n",
+    "  Folder: mail/perl/poe                                           1726\n",
+   ],
 
+  
 
  ];
 
@@ -176,4 +183,18 @@ is($obj->[0]->{year}, "2004", "year");
 is($obj->[0]->{subject}, undef, "subject");
 is($obj->[0]->{folder}, "mail/perl/poe", "folder");
 is($obj->[0]->{size}, 1726, "size ok");
+
+$obj = undef;
+$test++;
+$obj = $filter->get($test_data->[$test]);
+
+is($obj->[0]->{from}, "poe-return-2605-paulv=cpan.org\@perl.org", "from");
+is($obj->[0]->{dow}, "Thu", "dow");
+is($obj->[0]->{mon}, "Nov", "mon");
+is($obj->[0]->{date}, "11", "date");
+is($obj->[0]->{time}, "12:22:50", "time");
+is($obj->[0]->{year}, "2004", "year");
+is($obj->[0]->{subject}, "Re: use XML::Simple breaks my PoCo::IKC::Server", "subject");
+is($obj->[0]->{folder}, "mail/perl/poe", "folder");
+is($obj->[0]->{size}, 1726, "size");
 

@@ -11,7 +11,7 @@ use Data::Dumper;
 use POE::Filter::Line;
 use Carp qw(croak);
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 # sub get_one_start {
 #     my $self = shift;
@@ -63,7 +63,7 @@ sub new {
     
     $self->{match} = [
                       qr/^From (.+)\s\s($self->{dow}) ($self->{mon}) ([ \d]\d) (\d{2}:\d{2}:\d{2}) (\d{4})$/,
-                      qr/^\sSubject: ?(.+)?$/,
+                      qr/^\sSubject: ?(.+)?$/i,
                       qr/^\s\sFolder: (.+?)\s+(\d+)$/,
                      ];
     

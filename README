@@ -1,4 +1,4 @@
-POE-Filter-Log-Procmail version 0.02
+POE-Filter-Log-Procmail version 0.03
 ====================================
 
 This module turns procmail log records into hashrefs.
